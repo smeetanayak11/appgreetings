@@ -1,0 +1,15 @@
+{
+  "name": "greeting-app",
+  "version": "1.0.0",
+  "description": "Modern greeting web application with animations",
+  "scripts": {
+    "start": "npx serve -l 3000",
+    "build": "echo No build step - static app",
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "serve": "^14.2.0"
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greeting App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="animation-layer" aria-hidden="true"></div>
+
+  <main class="card">
+    <h1 class="title">Greeting App</h1>
+
+    <label for="name-input" class="label">Enter Your Name</label>
+    <input
+      type="text"
+      id="name-input"
+      class="input"
+      placeholder="Type your name here"
+      autocomplete="name"
+      aria-label="Your name"
+    />
+
+    <button type="button" id="greet-btn" class="btn">Greet</button>
+
+    <output id="greeting-output" class="greeting-output" role="status" aria-live="polite"></output>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

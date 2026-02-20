@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
+:root {
+  --bg-dark: #0f0f1a;
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: #f0f0f5;
+  --text-muted: #a0a0b0;
+  --accent: #7c5cff;
+  --accent-hover: #9378ff;
+  --input-bg: rgba(255, 255, 255, 0.08);
+  --glow: rgba(124, 92, 255, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  background: var(--bg-dark);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-x: hidden;
+}
+
+#animation-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.02em;
+}
+
+.label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--input-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--glow);
+}
+
+.btn {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.greeting-output {
+  display: block;
+  min-height: 2.5rem;
+  margin-top: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text);
+}
+
+/* Confetti pieces */
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  animation: confetti-fall linear forwards;
+}
+
+@keyframes confetti-fall {
+  to {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Party popper particles */
+.popper-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: popper-burst linear forwards;
+}
+
+@keyframes popper-burst {
+  to {
+    transform: var(--popper-end) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Glowing burst */
+.glow-burst {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 200vmax;
+  height: 200vmax;
+  margin-left: -100vmax;
+  margin-top: -100vmax;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(124, 92, 255, 0.6) 0%,
+    rgba(180, 120, 255, 0.3) 25%,
+    rgba(124, 92, 255, 0.1) 50%,
+    transparent 70%
+  );
+  animation: glow-burst-anim 1.2s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes glow-burst-anim {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
