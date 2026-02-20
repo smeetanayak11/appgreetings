@@ -1,5 +1,6 @@
 {
   "buildCommand": "echo No build step - static app",
   "outputDirectory": ".",
-  "public": true
+  "public": true,
+  "name": "greeting-app-smeetanayak"
 }
